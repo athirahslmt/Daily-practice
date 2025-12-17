@@ -1,0 +1,62 @@
+1. Write a SQL statement to create the employees table with the column
+- emp_id (interger, primary key)
+- name(text,not null)
+- salary (int)
+- city (text)
+
+2. Write INSERT statements to add at least 5 employees into table with differents department, salaries, and cities.
+3. Write a query to show all columns for all employees in the table.
+4. Write a query to show only name and salary of all employees.
+5. Write a query to show all employees who work in Engineering deparment.
+6. Write a query to show
+
+
+CREATE TABLE Department(
+	id     INT PRIMARY KEY,
+  	name   VARCHAR(50)
+);
+
+CREATE TABLE Employees(
+	id     INT PRIMARY KEY,
+  	name   VARCHAR(50),
+  	department_id INT,
+  	salary INT,
+  	city VARCHAR(50),
+  	hiring_year INT,
+  	FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+
+SELECT * FROM Employees;
+
+
+
+-- Insert some data into the tables
+INSERT INTO Department (id,name) VALUES (1,'Computer Science'),(2,'Maths'),(3,'Physics');
+
+INSERT INTO Employees (id,name,department_id,salary,city,hiring_year)
+VALUES 	(001,'Azwan',1,2500,'Kuala Lumpur',2025),
+		(002,'Bainun',3,3300,'Petaling Jaya',2022),
+        (003,'Daim',2,4500,'Seremban',2023),
+        (004,'Ezwan',2,5000,'Alor Gajah',2024),
+        (005,'Faiz',3,3000,'Kuala Lumpur',2025),
+        (006,'Ghafar',1,2700,'Seremban',2024),
+        (007,'Hawa',2,4500,'Alor Gajah',2023);
+        
+        
+
+SELECT name, salary, city, hiring_year FROM Employees WHERE city = 'Kuala Lumpur' AND hiring_year = 2025;
+
+SELECT name, salary, city, hiring_year FROM Employees WHERE salary > 4000;
+
+SELECT name,salary,city,hiring_year
+FROM Employees
+WHERE city IN ('Seremban' and 'Kuala Lumpur');
+
+SELECT name,salary,city,hiring_year
+FROM Employees
+WHERE salary BETWEEN 3000 AND 5000
+ORDER BY hiring_year;
+
+SELECT name, salary, city
+FROM Employees
+ORDER BY city ASC, salary DESC;
