@@ -1,0 +1,178 @@
+1. Title  : Blood Donation by Blood Group by State in Malaysia
+2. How : Only able to do simple visualization. Still trying to make visualization data better
+3. Key insight : Blood type O consistently dominates blood dominates blood donations across all years (2006 - Nov 2025)
+
+----------------------------
+Hazirah
+1.Crime Patterns in Malaysia (Analysing crime rates in states across Malaysia.)
+2.Right now, at the EDA process, managed to produce basic charts using plotly . 
+3.Malaysia has the lowest crime rate in 2022 based on crimes persecuted between 2016 - 2023 
+
+-----------------------------
+Fairuz
+Title: Relationship between poverty and income growth in Malaysia
+Data was cleaned using the dropna(), fillna(), dropduplicates(), dataisnull().sum().value(), duplicated(), concate()
+Data was clean for anaylsis but have not done the analysis part for insight yet
+
+---------------------------
+Aizatul AKma
+A Data-driven study on Vehicle Type Distribution and Fuel Usage Pattern
+Able to do 30% and still trying to make nice dashboard
+Key insight-most vehicle types use the same fuel(petrol)
+
+----------------------------
+Khairunisa
+How Climate Change Affects Agricultural Productivity
+(i couldnt find specific dataset for malaysia)
+10%
+Rising temperatures and irregular rainfall are strongly associated with reduced crop yields.
+
+------------------------------
+Amin
+.  Title:
+    Household Income by State & Percentile at Malaysia  in 2019, 2022 and 2024
+ 
+2.  EDA:
+    - removing NA
+    - using groupby method to identify state
+    - identify how much unique value in datasets using
+   
+3. insights:
+    - Kuala lumpur is the most income in malaysia
+    - perlis is the minimum income in malaysia
+-----------------------------------
+Aisyah
+sales of coffee beans in saudi
+1) how much increasing sales of coffee beans in saudi within 2 years.
+ 
+2) -i will do visualisation of total sales from each state.
+   -will look how much much discount have given or not.
+   -will look for how much state (value count)
+ 
+3) i will look for which country has highest sales demand of coffee beans.
+-----------------------------------
+Rushdi
+1.Rate of unemployment in various state of Malaysia.
+This project is to find the rate of employment in Malaysia from 2019 to 2022 in different state.
+It also to find the labour size to the employment offer.
+ 
+2. Data was cleannd and need to combine some of the data due to different year and district need to use groupby. Around 50 %
+ 
+3.Sabah is the highest most unemployment rate than the Selangor 
+and year 2019 of employment   where the first two year the rate is increase and the next year decreasing.
+
+----------------------------------
+Fakrullah
+1. How Education and Population Shape Unemployment in Malaysia
+This project looks at how population size and education levels relate to unemployment in Malaysia. The analysis uses government data to compare education attainment with unemployment rates across Malaysia.
+2. basic charts. trying to improve data visualization
+3. Based on initial observation, states such as Selangor show lower unemployment rates compared to other Malaysian states, likely due to better education attainment and wider job opportunities.
+
+---------------------------------
+
+Nazihah
+1. Project: Diversity-Equity-Inclusion Analysis of Employment in Malaysia
+How fairly and effectively the organization treats and represents different groups of people.
+2. Percentage of project completion: about 60%. Dashboard analysis using Power BI in progress.
+Complex type of dataset structure. Thus, using Power Query to clean data for Power BI usage. Using Power BI for visualization.
+3. Key insight from the data as-to-date:  minimal gap of salary between genders. Other factors in progress.
+
+---------------------------------------
+RIdzuan
+TITLE: Analysis of Quality loss and Energy Inefficiency in Solar Panel Manufacturing Factory
+ 
+1. Problem Scoping:
+    - Manufacturing factory - assembling solar panels.
+    - Daily output report looks normal on paper but:
+        - QC defect rising.
+        - Energy cost increasing.
+ 
+2. Data Acquisition:
+    - Getting the data/dataset - dataset acc
+ 
+3. Exploratory Data Analysis (EDA)
+    - Data cleaning -> Data visualization -> Data story
+    - question:
+        - What part of the production line cause quality issue?
+        - Who or what causes losses?
+        - Why energy cost climbs while output stays flat?
+        - When does it get worse? - which shift? am? pm?
+ 
+4. currently iam at the phase of data cleaning and the findings are:
+	a. missing value/countnull
+    		- downtime_minutes = 13
+	b. duplicate
+    		- row duplication = 0
+    		- id duplication = 0
+	c. imposibble/irrelevant data
+    		- -ve value in scrap_kg column = 14
+ 
+5. early insight - 
+    - data 'downtime_minutes' missing mostly on shift C running on M04 and M06 machine_id
+    - When 'downtime_minutes' missing, output drop during shift A & C,  running on machine M04 and M06
+    - When 'downtime_minutes' missing, average cycle_time_seconds for all machine_id running by shift C are higher compared to other shift 
+    - Batches with missing downtime records show lower output and longer cycle times compared to batches with recorded downtime, suggesting reporting issues/performance issues
+ 
+6. next:
+	- Decide wether to drop or fill missing values 
+	- for -ve value will converted to positive
+	- proceed with analysis
+	- dashboard using power bi
+
+-----------------------------
+Azlyn
+Agriculture Product Crop In Malaysia
+ 
+Analyse the crop production area for each state. This is to ensure the prediction of food securities planning for crop production. This issues addresses planning gaps in agriculture by enable farmers and policymakers to anticipate shortfalls, optimize planting, and boost sustainability amid variable monsoons. 
+
+-------------------------------
+Yana
+Weather and Climate Data in Malaysia. This focuses on cleaning and preparing Malaysia’s weather and climate data to ensure it is accurate and reliable for analysis.
+ 
+20% (still in review and cleaning part)
+ 
+As per now with rainfall showing clear seasonal patterns, particularly higher rainfall during the monsoon months
+
+
+Try to do both.
+Label encoding, and one hot encoding on
+ 
+titanic dataset
+ 
+
+import pandas as pd
+ 
+import seaborn as sns
+ 
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression  
+ 
+from sklearn.metrics import mean_absolute_error,r2_score
+ 
+titanicdf = sns.load_dataset('titanic')
+titanicdf.head()
+ 
+survived_factorized = pd.factorize(titanicdf['sex'])
+titanicdf['survived_factorized'] = survived_factorized[0]
+ 
+titanicdf.head(2)
+ 
+X = titanicdf[['fare']] #
+y = titanicdf['survived_factorized']
+ 
+model_Logistic = LogisticRegression()
+X_train,X_test,y_train,y_test = train_test_split(X,y, test_size = 0.2, random_state = 42)
+ 
+model_Logistic.fit(X_train,y_train)
+ 
+y_pred = model_Logistic.predict(X_test)
+y_pred
+ 
+r2 = r2_score(y_test, y_pred)  
+ 
+mae = mean_absolute_error(y_test,y_pred)
+mae
+ 
+print(f'r2 = {r2}\nmae = {mae}')
+ 
+ 
